@@ -1,0 +1,28 @@
+<script>
+	export let classname = '';
+	export let style = '';
+</script>
+
+<div class="skeleton {classname}" {style}>
+	<slot />
+</div>
+
+<style>
+	.skeleton {
+		display: block;
+		width: 100%;
+		border-radius: 5px;
+		background-image: linear-gradient(270deg, #fafafa, #eaeaea, #eaeaea, #fafafa);
+		background-size: 400% 100%;
+		animation: loading 8s ease-in-out infinite;
+	}
+
+	@keyframes loading {
+		0% {
+			background-position: 200% 0;
+		}
+		100% {
+			background-position: -200% 0;
+		}
+	}
+</style>

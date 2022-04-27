@@ -1,0 +1,32 @@
+/* Write your global styles here, in PostCSS syntax */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.green-ball {
+	background: radial-gradient(circle at 65% 15%, white 1px, #a3e635 3%, #15803d 60%, #a3e635 100%);
+}
+
+.blue-ball {
+	background: radial-gradient(circle at 65% 15%, white 1px, #c4b5fd 3%, #9333ea 60%, #c4b5fd 100%);
+}
+
+.orange-ball {
+	background: radial-gradient(circle at 65% 15%, white 1px, #fdba74 3%, #ea580c 60%, #fdba74 100%);
+}
+
+.gray-ball {
+	background: radial-gradient(
+		circle at 65% 15%,
+		white 1px,
+		rgb(209 213 219) 3%,
+		rgb(75 85 99) 60%,
+		rgb(209 213 219) 100%
+	);
+}
