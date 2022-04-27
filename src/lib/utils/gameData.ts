@@ -28,3 +28,9 @@ export const EnergyItems = {
 };
 
 export const colors = ['green', 'red', 'blue'];
+
+export const APP_STATES = {
+	INIT: 'Init',
+	STARTED: 'Started',
+	GAME_OVER: 'Game Over'
+};
