@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { fade } from 'svelte/transition';
 	import { onDestroy } from 'svelte';
 
 	import Item from './Item.svelte';
@@ -25,6 +26,7 @@
 
 	const handleTap = (itemScore: number): void => {
 		score += itemScore;
+		updateItemsPassed();
 	};
 
 	const addNewItems = () => {
@@ -34,7 +36,18 @@
 		items = [...items, ...balls];
 	};
 
+	const resetScore = () => (score = 0);
+	const resetItems = () => (items = []);
+
+	const resetGame = () => {
+		resetScore();
+		resetItems();
+		itemsPassed = 0;
+	};
+
 	const startGame = () => {
+		resetGame();
+
 		CURRENT_STATE = APP_STATES.STARTED;
 		addNewItems();
 		int = window.setInterval(addNewItems, INTERVAL);
@@ -66,26 +79,29 @@
 	{/if}
 
 	{#if CURRENT_STATE === APP_STATES.STARTED}
-		<div class="flex justify-center p-20">
+		<div class="flex justify-center p-20" out:fade>
 			<h3 class="bg-white py-2 w-full rounded-3xl shadow-md text-center text-lg">
 				Score: {score}
 			</h3>
 		</div>
 		{#each items as item}
-			<Item type={item} onTap={handleTap} />
+			<Item type={item} onTap={handleTap} {updateItemsPassed} />
 		{/each}
 	{/if}
 
 	{#if CURRENT_STATE === APP_STATES.GAME_OVER}
 		<div
 			class="flex flex-col m-16 my-20 py-2 justify-center items-center bg-white shadow-md rounded-md"
+			in:fade
 		>
 			<h1 class="text-center text-xl font-medium">Game Over</h1>
 			<p class="py-2">Your Score: {score}</p>
 			<button
 				class="my-2 text-indigo-500 font-medium py-1 px-10 border rounded-3xl border-indigo-600 hover:bg-indigo-500 hover:text-white transition-colors"
-				>Retry</button
+				on:click={startGame}
 			>
+				Retry
+			</button>
 		</div>
 	{/if}
 </div>

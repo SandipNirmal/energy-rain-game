@@ -7,6 +7,7 @@
 
 	export let type = 'green';
 	export let onTap: Function;
+	export let updateItemsPassed: Function;
 
 	let hide = false;
 	let showScore = false;
@@ -42,6 +43,7 @@
 			if (top > MAX_HEIGHT) {
 				window?.cancelAnimationFrame(ref);
 				hide = true;
+				updateItemsPassed();
 			} else {
 				ref = window?.requestAnimationFrame(updateTop);
 			}
@@ -66,7 +68,7 @@
 		in:fade
 		out:fly={{
 			y: -20,
-            duration: 1200
+			duration: 1200
 		}}
 	>
 		+{points}
