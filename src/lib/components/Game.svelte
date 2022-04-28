@@ -13,7 +13,7 @@
 	 */
 	let score = 0;
 	const SECOND = 1000;
-	const GAME_TIME = 30 * SECOND;
+	const GAME_TIME = 3 * SECOND;
 	const COUNT = 4;
 	const INTERVAL = 1500;
 
@@ -79,7 +79,7 @@
 	{/if}
 
 	{#if CURRENT_STATE === APP_STATES.STARTED}
-		<div class="flex justify-center p-20" out:fade>
+		<div class="flex justify-center p-20">
 			<h3 class="bg-white py-2 w-full rounded-3xl shadow-md text-center text-lg">
 				Score: {score}
 			</h3>
@@ -90,18 +90,19 @@
 	{/if}
 
 	{#if CURRENT_STATE === APP_STATES.GAME_OVER}
-		<div
-			class="flex flex-col m-16 my-20 py-2 justify-center items-center bg-white shadow-md rounded-md"
-			in:fade
-		>
-			<h1 class="text-center text-xl font-medium">Game Over</h1>
-			<p class="py-2">Your Score: {score}</p>
-			<button
-				class="my-2 text-indigo-500 font-medium py-1 px-10 border rounded-3xl border-indigo-600 hover:bg-indigo-500 hover:text-white transition-colors"
-				on:click={startGame}
+		<div class="absolute top-0 left-0 w-full" in:fade>
+			<div
+				class="flex w-4/6 flex-col mx-auto my-20 py-2 justify-center items-center bg-white shadow-md rounded-md"
 			>
-				Retry
-			</button>
+				<h1 class="text-center text-xl font-medium">Game Over</h1>
+				<p class="py-2">Your Score: {score}</p>
+				<button
+					class="my-2 text-indigo-500 font-medium py-1 px-10 border rounded-3xl border-indigo-600 hover:bg-indigo-500 hover:text-white transition-colors"
+					on:click={startGame}
+				>
+					Retry
+				</button>
+			</div>
 		</div>
 	{/if}
 </div>

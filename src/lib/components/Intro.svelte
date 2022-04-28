@@ -41,6 +41,7 @@
 	<div class="flex justify-center py-6 w-full">
 		<button class="bg-white py-2 w-full rounded-3xl shadow-md" on:click={onStart}>Start</button>
 	</div>
+	<p class="text-sm font-medium">Use mobile browser for better experience</p>
 </div>
 
 <style lang="postcss">

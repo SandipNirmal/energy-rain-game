@@ -32,6 +32,6 @@
 	}
 
 	.container {
-		@apply bg-gradient-to-b from-blue-200 to-blue-300 h-full w-full;
+		@apply relative bg-gradient-to-b from-blue-200 to-blue-300 h-full w-full md:max-h-[760px] overflow-hidden md:my-24;
 	}
 </style>
