@@ -13,7 +13,7 @@
 	 */
 	let score = 0;
 	const SECOND = 1000;
-	const GAME_TIME = 3 * SECOND;
+	const GAME_TIME = 30 * SECOND;
 	const COUNT = 4;
 	const INTERVAL = 1500;
 
