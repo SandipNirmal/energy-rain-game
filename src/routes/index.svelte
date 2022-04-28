@@ -13,6 +13,11 @@
 	});
 </script>
 
+<svelte:head>
+	<title>Energy Rain</title>
+	<meta name="description" content="Get supercharged by collecting energy points" />
+</svelte:head>
+
 <article class="container">
 	{#if isLoading}
 		<Loading />
